@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     fetchProducts();
 
-    const productForm = document.getElementById('#productForm');
+    const productForm = document.getElementById('productModal');
     productForm.addEventListener('submit', function(event) {
         event.preventDefault();
         addProduct(new FormData(productForm));
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function fetchProducts() {
-    fetch('http://furniture-store/backend/api/products.php')
+    fetch('../backend/api/products.php')
         .then(response => response.json())
         .then(data => displayProducts(data))
         .catch(error => console.error('Error fetching products:', error));
@@ -40,7 +40,7 @@ function displayProducts(products) {
 }
 
 function fetchProductDetails(productId) {
-    fetch(`http://furniture-store/backend/api/product_details.php?id=${productId}`)
+    fetch(`../backend/api/product_details.php?id=${productId}`)
         .then(response => response.json())
         .then(data => showProductDetails(data))
         .catch(error => console.error('Error fetching product details:', error));
@@ -78,7 +78,7 @@ function searchProducts() {
 }
 
 function addProduct(formData) {
-    fetch('http://furniture-store/backend/api/upload.php', {
+    fetch('../backend/api/upload.php', {
         method: 'POST',
         body: formData
     })
@@ -104,7 +104,7 @@ function showSection(sectionId) {
 
 function loadTable() {
     const tableSelect = document.getElementById('tableSelect').value;
-    fetch(`http://furniture-store/backend/api/load_table.php?table=${tableSelect}`)
+    fetch(`../backend/api/load_table.php?table=${tableSelect}`)
         .then(response => response.json())
         .then(data => displayTable(data, tableSelect))
         .catch(error => console.error('Error loading table:', error));
@@ -183,7 +183,7 @@ function displayTable(data, tableName) {
 }
 
 function editRow(id, tableName) {
-    fetch(`http://furniture-store/backend/api/load_row.php?id=${id}&table=${tableName}`)
+    fetch(`../backend/api/load_row.php?id=${id}&table=${tableName}`)
         .then(response => response.json())
         .then(data => {
             const form = document.createElement('form');
@@ -211,7 +211,7 @@ function editRow(id, tableName) {
 function updateRow(formData, tableName, id) {
     formData.append('tableName', tableName);
     formData.append('id', id);
-    fetch('http://furniture-store/backend/api/update_row.php', {
+    fetch('../backend/api/update_row.php', {
         method: 'POST',
         body: formData
     })
@@ -232,7 +232,7 @@ function cancelEdit() {
 }
 
 function deleteRow(id, tableName) {
-    fetch('http://furniture-store/backend/api/delete_row.php', {
+    fetch('../backend/api/delete_row.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -253,7 +253,7 @@ function deleteRow(id, tableName) {
 
 function addRow(formData, tableName) {
     formData.append('tableName', tableName);
-    fetch('http://furniture-store/backend/api/add_row.php', {
+    fetch('../backend/api/add_row.php', {
         method: 'POST',
         body: formData
     })
@@ -273,7 +273,7 @@ function fetchStatistics() {
     const startDate = document.getElementById('startDate').value;
     const endDate = document.getElementById('endDate').value;
 
-    fetch(`http://furniture-store/backend/api/statistics.php?startDate=${startDate}&endDate=${endDate}`)
+    fetch(`../backend/api/statistics.php?startDate=${startDate}&endDate=${endDate}`)
         .then(response => response.json())
         .then(data => displayStatistics(data))
         .catch(error => console.error('Error fetching statistics:', error));
@@ -330,7 +330,7 @@ function downloadPDF() {
     const startDate = document.getElementById('startDate').value;
     const endDate = document.getElementById('endDate').value;
 
-    window.open(`http://furniture-store/backend/api/statistics_pdf.php?startDate=${startDate}&endDate=${endDate}`, '_blank');
+    window.open(`../backend/api/statistics_pdf.php?startDate=${startDate}&endDate=${endDate}`, '_blank');
 }
 
 function showSection(sectionId) {

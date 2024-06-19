@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root"; // Змініть на вашого користувача MySQL
-$password = "fbRr31r_14fg5"; // Змініть на ваш пароль MySQL
+$password = "root"; // Змініть на ваш пароль MySQL
 $dbname = "store"; // Назва вашої бази даних
 
 // Створення з'єднання

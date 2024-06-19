@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `categories` (
   `ID` int NOT NULL,
   `Name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп даних таблиці `categories`
@@ -65,7 +65,7 @@ CREATE TABLE `orderdetails` (
   `ProductID` int DEFAULT NULL,
   `Quantity` int NOT NULL,
   `PriceAtOrder` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп даних таблиці `orderdetails`
@@ -100,7 +100,7 @@ CREATE TABLE `orders` (
   `OrderDate` date NOT NULL,
   `Status` enum('В обробці','Відправлено','Доставлено') NOT NULL,
   `SellerID` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп даних таблиці `orders`
@@ -138,7 +138,7 @@ CREATE TABLE `products` (
   `CategoryID` int DEFAULT NULL,
   `ImageURL` varchar(255) DEFAULT NULL,
   `Manufacturer` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп даних таблиці `products`
@@ -174,7 +174,7 @@ CREATE TABLE `sellers` (
   `Email` varchar(255) NOT NULL,
   `PasswordHash` varchar(255) NOT NULL,
   `Phone` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп даних таблиці `sellers`
@@ -211,7 +211,7 @@ CREATE TABLE `users` (
   `PasswordHash` varchar(255) NOT NULL,
   `Role` enum('Admin','Client') NOT NULL,
   `Address` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп даних таблиці `users`
