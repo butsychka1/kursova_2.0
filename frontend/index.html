@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture Store</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showSection('home')">Головна</a></li>
+            <li><a href="#" onclick="showSection('management')">Керування</a></li>
+            <li><a href="#" onclick="showSection('statistics')">Статистика</a></li>
+            <li><a href="#" onclick="showSection('documents')">Документи</a></li>
+            <li><a href="#" onclick="showSection('help')">Контакти</a></li>
+        </ul>
+    </nav>
+    <div id="home" class="section">
+        <h1>Каталог товарів</h1>
+        <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Пошук за назвою...">
+        <div id="productsContainer" class="products-container"></div>
+    </div>
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Деталі товару</h2>
+            <p><strong>Назва товару:</strong> <span id="modalProductName"></span></p>
+            <p><strong>Ім'я покупця:</strong> <span id="modalCustomerName"></span></p>
+            <p><strong>Ім'я продавця:</strong> <span id="modalSellerName"></span></p>
+            <p><strong>Дата замовлення:</strong> <span id="modalOrderDate"></span></p>
+            <p><strong>Статус замовлення:</strong> <span id="modalOrderStatus"></span></p>
+            <p><strong>Ціна:</strong> <span id="modalProductPrice"></span></p>
+        </div>
+    </div>
+    <div id="management" class="section" style="display:none;">
+        <h1>Керування</h1>
+        <label for="tableSelect">Виберіть таблицю:</label>
+        <select id="tableSelect" onchange="loadTable()">
+            <option value="Products">Продукти</option>
+            <option value="Categories">Категорії</option>
+            <option value="Users">Користувачі</option>
+            <option value="Sellers">Продавці</option>
+            <option value="Orders">Замовлення</option>
+            <option value="OrderDetails">Деталі замовлень</option>
+        </select>
+        <div id="tableContent"></div>
+    </div>
+    
+    <div id="statistics" class="section" style="display:none;">
+        <h1>Статистика</h1>
+        <input type="date" id="startDate">
+        <input type="date" id="endDate">
+        <button class="button-statistics" onclick="fetchStatistics()">Отримати статистику</button>
+        <button class="button-statistics" onclick="downloadPDF()">Виввантажити PDF</button>
+        <div class="tittle_table">
+            <h2>Звіт з продажу менеджерів</h2>
+            <h2>Продані товари за типом</h2>
+        </div>
+        <div id="statisticsContainer"></div>
+    </div>
+    <div id="documents" class="section" style="display:none;">
+        <h1>Documents</h1>
+        <div id="pdfContainer">
+            <iframe id="pdfIframe" src="./fonts/clip583.png" width="100%" height="600px" type="application/pdf"></iframe>
+        </div>
+    </div>
+    </div>
+    <div id="help" class="section" style="display:none;">
+        <h1>Інформація</h1>
+        <p class="info-text">Дана курсова робота була розроблена студенткою групи КН-2-5ск, Буцик Анастасіїє Олександрівною </p>
+        
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
++
