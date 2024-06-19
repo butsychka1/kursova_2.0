@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "clear": "vite clear"
+  },
+  "devDependencies": {
+      "axios": "^1.1.2",
+      "vite": "^3.2.7"
+  },
+  "dependencies": {
+      "gsap": "^3.12.4",
+      "i18next": "^23.7.16",
+      "node": "^20.5.1"
+  }
+}

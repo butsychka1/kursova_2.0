@@ -126,9 +126,40 @@ function displayTable(data, tableName) {
     const thead = document.createElement('thead');
     const headerRow = document.createElement('tr');
 
-    Object.keys(data[0]).forEach(key => {
+    
+
+    // Mapping object for key translations
+    const keyTranslations = {
+        Name: 'Назва',
+        FirstName: 'Імʼя',
+        LastName: 'Прізвище',
+        PasswordHash: 'Пароль',
+        Role: 'Роль',
+        Address: 'Адреса',
+        Phone: 'Телефон',
+        UserID: "ID користувача",
+        OrderDate: 'Дата замовлення',
+        Status: 'Статус',
+        SellerID: 'ID продавця',
+        Quantity: 'Кількість',
+        OrderID: 'ID замовлення',
+        ProductID:'ID продукту',
+        PriceAtOrder: 'Ціна за одиницю',
+        Description: 'Опис',
+        Price: 'Ціна',
+        Stock: 'В наявності',
+        CategoryID: 'Категорії',
+        ImageURL: 'Адреса зображення',
+        Manufacturer: 'Виробник'
+    };
+
+    // Create a new array from Object.keys(data[0]) with reassigned values
+    const newKeys = Object.keys(data[0]).map(key => keyTranslations[key] || key);
+
+    // Generate table headers using the new keys
+    newKeys.forEach(newKey => {
         const th = document.createElement('th');
-        th.innerText = key;
+        th.innerText = newKey;
         headerRow.appendChild(th);
     });
 
@@ -168,7 +199,7 @@ function displayTable(data, tableName) {
     const form = document.createElement('form');
     form.id = 'managementForm';
     form.innerHTML = `
-        ${Object.keys(data[0]).map(key => `
+        ${newKeys.map(key => `
             <label for="${key}">${key}:</label>
             <input type="text" id="${key}" name="${key}" required><br>
         `).join('')}
@@ -188,6 +219,7 @@ function editRow(id, tableName) {
         .then(data => {
             const form = document.createElement('form');
             form.id = 'editForm';
+            
             form.innerHTML = `
                 ${Object.keys(data).map(key => `
                     <label for="edit_${key}">${key}:</label>

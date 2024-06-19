@@ -5,38 +5,102 @@
     font-style: normal;
 }
 
+* {
+    box-sizing: border-box;
+  }
+  
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+
+body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,input,textarea,p,blockquote,th,td{
+    margin: 0;
+    padding: 0;
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+fieldset,img,abbr{
+    border: 0;
+}
+address,caption,cite,code,dfn,em,strong,th,var{
+    font-style: normal;
+    font-weight: normal;
+}
+ul li{
+    list-style: none;
+}
+caption,th{
+    text-align: left;
+}
+h1,h2,h3,h4,h5,h6{
+    font-size: 100%;
+    font-weight: normal;
+}
+sup{
+    vertical-align: text-top;
+}
+sub{
+    vertical-align: text-bottom;
+}
+input,textarea,select{
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+legend{
+    color: #000;
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main{
+    display: block;
+}
+img{
+    max-width: 100%;
+    height: auto;
+} 
+
+html,
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    margin: 0;
+    min-width: 320px;
+    line-height: 1.5em;
+    overflow-x: hidden !important;
+
 }
 
-nav {
+
+
+.nav {
     background-color: #007bff;
     color: #fff;
     padding: 10px 0;
 }
 
-nav ul {
+.nav-list {
     list-style-type: none;
     padding: 0;
     text-align: center;
 }
 
-nav ul li {
+.nav-item {
     display: inline;
     margin-right: 20px;
 }
 
-nav ul li a {
+.nav-item a {
     color: #fff;
     text-decoration: none;
     font-size: 16px;
 }
 
-nav ul li a:hover {
+.nav-item a:hover {
     text-decoration: underline;
 }
 
@@ -48,12 +112,13 @@ nav ul li a:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+.section-title {
+
     color: #333;
 }
 
 #searchInput {
-    width: calc(100% - 40px);
+    width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 8px;
@@ -64,15 +129,15 @@ h1 {
 .products-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .product-card {
     border: 1px solid #ddd;
     border-radius: 8px;
-    margin: 10px;
     padding: 15px;
-    width: calc(28% - 20px); /* Ширина кожної картки */
+    width: calc(33.333% - 15px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     transition: transform 0.3s;
@@ -338,6 +403,7 @@ h1 {
 }
 
 .modal-content {
+    position: relative;
     background-color: #fff;
     margin: 5% auto;
     padding: 20px;
@@ -346,11 +412,16 @@ h1 {
     max-width: 600px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     color: #aaa;
-    float: right;
     font-size: 28px;
     font-weight: bold;
 }
@@ -371,10 +442,21 @@ h1 {
 }
 #pdfContainer {
     display: flex;
-    height: 800px;
+    height: 100vh;
 }
 
 embed {
     width: 100%;
     height: 100%;
+}
+
+.details-title {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 600;
+
 }

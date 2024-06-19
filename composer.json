@@ -1,4 +1,9 @@
 {
+    "name": "kursova",
+    "type": "project",
+    "description": "Nastya's project",
+    "keywords": ["kursova", "php"],
+    "license": "MIT",
     "require": {
         "dompdf/dompdf": "^0.8.3"
     }
